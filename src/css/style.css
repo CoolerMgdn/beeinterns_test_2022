@@ -42,7 +42,7 @@ body {
   font-size: 16px;
   background-color: #2B2C3A;
   color: #fff;
-  font-family: 'Jost', sans-serif;
+  font-family: Jost;
   font-style: normal;
   font-weight: normal;
 }
@@ -64,22 +64,51 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 20px 30px 30px 30px;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 1px;
+}
+
+.leftbar .logo {
+  padding: 20px 30px 26px 30px;
+}
+
+.leftbar .leftbarMenu {
+  padding: 20px 30px 4px 30px;
+}
+
+.leftbar .mailing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: auto;
+  line-height: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.leftbar .mailing span {
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+.leftbar .mailing .mailingSwitch {
+  cursor: pointer;
 }
 
 .leftbar ul, .leftbar a, .leftbar p {
   cursor: pointer;
 }
 
-.leftbar .logo {
-  margin-bottom: 46px;
-}
-
-.leftbar .programms,
-.leftbar .lectures {
+.leftbar #programms,
+.leftbar #lectures {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,12 +117,18 @@ body {
           justify-content: space-between;
 }
 
+.leftbar .menuClose {
+  display: none !important;
+  list-style: none;
+}
+
 .leftbar p {
   margin-bottom: 16px;
 }
 
 .leftbar .menuToggle {
   background: none;
+  cursor: pointer;
 }
 
 .leftbar ul {
@@ -125,7 +160,7 @@ body {
   opacity: 1;
 }
 
-.leftbar ul li:hover .vLine2 {
+.leftbar ul li:hover .selectLine {
   opacity: 1;
 }
 
@@ -133,7 +168,7 @@ body {
   margin-left: 24px;
 }
 
-.leftbar ul li .vLine2 {
+.leftbar ul li .selectLine {
   width: 3px;
   height: 100%;
   background: #000;
@@ -198,6 +233,42 @@ body {
   height: 1px;
   background: #D8D8D8;
   opacity: 0.1;
-  margin-top: 70px;
+}
+
+#switch {
+  width: 42px;
+  padding: 2px;
+  opacity: 0.2;
+  border: 1px solid #FFFFFF;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: all 03s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#toggle {
+  width: 16px;
+  height: 16px;
+  background: #6F6EFF;
+  -webkit-box-shadow: 0px 0px 12px rgba(111, 110, 255, 0.5);
+          box-shadow: 0px 0px 12px rgba(111, 110, 255, 0.5);
+  border-radius: 100%;
+  position: relative;
+  transition: all 0.3s;
+  left: 0;
+  -webkit-transition: all 0.3s;
+}
+
+#switch.switchOn #toggle {
+  left: 20px;
+}
+
+#switch.switchOn {
+  -webkit-filter: none;
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */
