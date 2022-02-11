@@ -51,6 +51,7 @@ body {
   font-weight: normal;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -74,14 +75,24 @@ body {
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 1px;
+  overflow-y: scroll;
 }
 
 .leftbar .logo {
-  padding: 20px 30px 26px 30px;
+  position: fixed;
+  background: #343646;
+  z-index: 15;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-bottom: 7px;
+  width: 280px;
+  height: 70px;
+  border-bottom: 1px solid rgba(216, 216, 216, 0.1);
 }
 
 .leftbar .leftbarMenu {
-  padding: 20px 30px 4px 30px;
+  padding: 100px 30px 4px 30px;
 }
 
 .leftbar .leftbarMenu p, .leftbar .leftbarMenu .programms, .leftbar .leftbarMenu .lectures {
@@ -277,6 +288,10 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   border-bottom: 1px solid rgba(216, 216, 216, 0.1);
+}
+
+.topbar .logoMobile {
+  display: none;
 }
 
 .topbar .information {
@@ -657,5 +672,196 @@ body {
 
 .dropdown :checked ~ ul {
   display: inline-block;
+}
+
+@media screen and (max-width: 1100px) {
+  .topbar > .personal > .achieves {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mobileShow {
+    display: block !important;
+  }
+  .leftbar {
+    display: none;
+  }
+  .content {
+    padding-top: 90px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .logoMobile {
+    display: block !important;
+    border: none;
+    width: 200px;
+  }
+  .topbar {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  .topbar > .achieves,
+  .topbar > .information,
+  .topbar > .personal {
+    display: none !important;
+  }
+  .hamburger-menu {
+    display: block !important;
+  }
+  .level {
+    font-size: 10px !important;
+  }
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+
+.menu__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  top: -6px;
+  left: 0px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+}
+
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 70px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #343646;
+  -webkit-transition-duration: .25s;
+  transition-duration: .25s;
+}
+
+.menu__box .leftbarMenu {
+  padding: 10px 15px 4px 15px;
+}
+
+.menu__box .leftbarMenu .dropdown {
+  margin-top: -20px;
+}
+
+.menu__box .leftbarMenu .dropdown .lecturesMenu,
+.menu__box .leftbarMenu .dropdown .programmsMenu {
+  margin-left: -15px;
+  margin-right: -15px;
+  width: 100vw;
+}
+
+.menu__box .mailing {
+  padding: 10px 15px 4px 15px;
+  margin-bottom: 100px;
+}
+
+.menu__box .achieves p {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  white-space: nowrap;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  font-size: 11px;
+}
+
+.menu__box .information,
+.menu__box .personal {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.menu__box .information .account p,
+.menu__box .personal .account p {
+  margin-bottom: 5px;
+}
+
+.menu__box .information .status,
+.menu__box .personal .status {
+  margin-right: 15px;
+}
+
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+}
+
+.menu__item :hover {
+  background-color: #CFD8DC;
 }
 /*# sourceMappingURL=style.css.map */

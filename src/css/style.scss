@@ -41,6 +41,7 @@ body {
     font-style: normal;
     font-weight: normal;
     transition:all 0.3s;
+    overflow-x: hidden;
 }
 .wrapper {
     min-height: 100%;
@@ -58,11 +59,23 @@ body {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 1px;
+    overflow-y: scroll;
     .logo {
-        padding: 20px 30px 26px 30px;
+        position: fixed;
+        background: #343646;
+        z-index: 15;
+        padding: {
+            left: 30px;
+            top: 20px;
+            right: 30px;
+            bottom: 7px;
+        }
+        width: 280px;
+        height: 70px;
+        border-bottom: 1px solid rgba(216, 216, 216, 0.1);
     }
     .leftbarMenu {
-        padding: 20px 30px 4px 30px;
+        padding: 100px 30px 4px 30px;
         p, .programms, .lectures {
             opacity: 0.5;
             &:hover {
@@ -218,6 +231,9 @@ body {
     }
     justify-content: space-between;
     border-bottom: 1px solid rgba(216, 216, 216, 0.1);
+    .logoMobile {
+        display: none;
+    }
     .information {
         display: flex;
         margin-left: 280px;
@@ -484,7 +500,6 @@ body {
     }
     
 }
-
 .dropdown {
     .programms, .lectures {
         display: flex;
@@ -504,5 +519,168 @@ body {
     }
     :checked ~ ul {
         display: inline-block;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .topbar > .personal > .achieves {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 800px) {
+    .mobileShow {
+        display: block !important;
+    }
+    .leftbar {
+        display: none;
+    }
+    .content {
+        padding: {
+            top: 90px;
+            left: 15px;
+            right: 15px;
+        };
+    }
+    .logoMobile {
+        display: block !important;
+        border: none;
+        width: 200px;
+    }
+    .topbar {
+        padding: {
+            left: 15px !important;
+            right: 15px !important;
+        };
+        & > .achieves,
+        & > .information,
+        & > .personal {
+            display: none !important;
+        }
+    }
+    .hamburger-menu {
+        display: block !important;
+    }
+    .level {
+        font-size: 10px !important;
+    }
+}
+
+.hamburger-menu {
+    display: none;
+}
+#menu__toggle {
+    opacity: 0;
+    &:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+        &::before {
+            top: 0;
+            transform: rotate(0);
+        }
+        &::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+    }
+    &:checked ~ .menu__box {
+        visibility: visible;
+        left: 0;
+    }
+}
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -6px;
+    left: 0px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+    & > span,
+    & > span::before,
+    & > span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #616161;
+        transition-duration: .25s;
+    }
+    & > span::before {
+        content: '';
+        top: -8px;
+    }
+    & > span::after {
+        content: '';
+        top: 8px;
+    }
+}
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 70px;
+    //left: -100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #343646;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+    .leftbarMenu {
+        padding: 10px 15px 4px 15px;
+        .dropdown {
+            margin-top: -20px;
+            .lecturesMenu,
+            .programmsMenu {
+                margin-left: -15px;
+                margin-right: -15px;
+                width: 100vw;
+            }
+        }
+    }
+    .mailing {
+        padding: 10px 15px 4px 15px;
+        margin-bottom: 100px;
+    }
+    .achieves p {
+        margin-bottom: 5px;
+        margin-top: 5px;
+        white-space: nowrap;
+        padding: {
+            left: 5px !important;
+            right: 5px !important;
+            top: 5px !important;
+            bottom: 5px !important;
+        };
+        font-size: 11px;
+    }
+    .information,
+    .personal {
+        display: flex !important;
+        flex-wrap: wrap;
+        margin-left: 15px;
+        margin-top: 10px;
+        .account p {
+            margin-bottom: 5px;
+        }
+        .status {
+            margin-right: 15px;
+        }
+    }
+}
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+    :hover {
+        background-color: #CFD8DC;  
     }
 }
