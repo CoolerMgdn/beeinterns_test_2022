@@ -52,7 +52,7 @@ body {
     position: fixed;
     height: 100%;
     width: 280px;
-    background: rgba(156, 165, 236, 0.04);
+    background: #343646;
     display: flex;
     flex-direction: column;
     font-size: 14px;
@@ -351,6 +351,15 @@ body {
                 line-height: 17px;
                 //height: 30px;
                 cursor: pointer;
+                #showAll1 {
+                    cursor: pointer;
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                    &:checked #courseList1 {
+                        flex-wrap: wrap;
+                    }
+                }
                 .lessonsAll {
                     background: linear-gradient(90deg, #6B69F9 0%, #6F6EFF 100%);
                     border-radius: 4px;
@@ -361,6 +370,7 @@ body {
                         bottom: 6px;
                     };
                     margin-right: 5px;
+                    cursor: pointer;
                     &:hover {
                         color: #6F6EFF;
                         background: #fff;
@@ -386,13 +396,15 @@ body {
         }
         .courseList {
             display: flex;
-            overflow: hidden;
+            //overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+            margin-left: -4px;
             .lesson {
                 background: rgba(255, 255, 255, 0.04);
                 width: 255px;
                 height: 294px;
                 border-radius: 6px;
-                margin-left: 10px;
+                margin: 4px;
                 &:first-child {
                     margin-left: 0;
                 }
@@ -474,7 +486,6 @@ body {
 }
 
 .dropdown {
-//position: relative; /* Относительное позиционирование */
     .programms, .lectures {
         display: flex;
         align-items: center;
@@ -486,13 +497,12 @@ body {
         height: 0;
     }
     ul { 
-        display: none; /* Прячем */ 
+        display: none;
     }
     :checked ~ label i {
         transform: rotate(180deg);
     }
     :checked ~ ul {
-        display: inline-block; /* Показываем меню */
+        display: inline-block;
     }
-    
 }

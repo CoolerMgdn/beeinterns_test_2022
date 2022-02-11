@@ -63,7 +63,7 @@ body {
   position: fixed;
   height: 100%;
   width: 280px;
-  background: rgba(156, 165, 236, 0.04);
+  background: #343646;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -465,6 +465,18 @@ body {
   cursor: pointer;
 }
 
+.content .course .courseText .lessons #showAll1 {
+  cursor: pointer;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.content .course .courseText .lessons #showAll1:checked #courseList1 {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .content .course .courseText .lessons .lessonsAll {
   background: -webkit-gradient(linear, left top, right top, from(#6B69F9), to(#6F6EFF));
   background: linear-gradient(90deg, #6B69F9 0%, #6F6EFF 100%);
@@ -474,6 +486,7 @@ body {
   padding-top: 6px;
   padding-bottom: 6px;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .content .course .courseText .lessons .lessonsAll:hover {
@@ -511,7 +524,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  margin-left: -4px;
 }
 
 .content .course .courseList .lesson {
@@ -519,7 +533,7 @@ body {
   width: 255px;
   height: 294px;
   border-radius: 6px;
-  margin-left: 10px;
+  margin: 4px;
 }
 
 .content .course .courseList .lesson:first-child {
@@ -634,7 +648,6 @@ body {
 
 .dropdown ul {
   display: none;
-  /* Прячем */
 }
 
 .dropdown :checked ~ label i {
@@ -644,6 +657,5 @@ body {
 
 .dropdown :checked ~ ul {
   display: inline-block;
-  /* Показываем меню */
 }
 /*# sourceMappingURL=style.css.map */
